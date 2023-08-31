@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="reg.css">
+<title>Course Registration</title>
+<style>
+  .error {
+    color: red;
+  }
+</style>
+<script type="text/javascript">
+    function validateForm() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const course = document.getElementById("course").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const errorElement = document.getElementById("error");
+    
+      let isValid = true;
+    
+      if (!name || !email || !phone || !course || !password || !confirmPassword) {
+        isValid = false;
+        errorElement.textContent = "All fields are required.";
+      } else if (password !== confirmPassword) {
+        isValid = false;
+        errorElement.textContent = "Passwords do not match.";
+      } else {
+        errorElement.textContent = "";
+      }
+    
+      if (email && !isValidEmail(email)) {
+        isValid = false;
+        errorElement.textContent = "Please enter a valid email address.";
+      }
+    
+      if (phone && !isValidPhone(phone)) {
+        isValid = false;
+        errorElement.textContent = "Please enter a valid phone number.";
+      }
+    
+      return isValid;
+    }
+    
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+    
+    function isValidPhone(phone) {
+      const phoneRegex = /^\d{10}$/; // Change this regex based on your phone number format
+      return phoneRegex.test(phone);
+    }
+    </script>
+    
+</head>
+<body style="background-color:blanchedalmond;">
+    <div class="container">
+        <h1>Course Registration</h1>
+        <form id="registrationForm" onsubmit="return validateForm()">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required>
+          
+          <label for="course">Select Course:</label>
+          <select id="course" name="course" required>
+            <option value="">Select a course</option>
+            <option value="course1">AIML</option>
+            <option value="course2">DS</option>
+            <option value="course3">IOT</option>
+          </select>
+          
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+          
+          <input type="submit" value="Register">
+          <p id="error" class="error"></p>
+        </form>
+      </div>
+</body>
+</html>

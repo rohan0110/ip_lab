@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <p id=" demo"></p>
+  <script type="text/javascript">
+    function MyAlert(){
+      alert("You are about to view results");
+    }
+
+    function MyConfirm() {
+      if (confirm("Do you wish to proceed")) {
+        window.location.href = "sports.html"; 
+      } else {
+      document.getElementById("demo").innerHTML = "You pressed Cancel!";
+      }
+    }
+
+    function MyPrompt(){
+      var enteredPassword = prompt("Enter the password:");
+      var correctPassword = "rohan"; 
+
+      if (enteredPassword === correctPassword) {
+      window.location.href = "hobbies.html"; 
+      } else if (enteredPassword !== null) {
+        document.getElementById("demo").innerHTML = "Access denied!";
+      } else {
+        document.getElementById("demo").innerHTML = "You pressed Cancel!";
+      }
+    }
+  </script>
+</head>
+<body>
+
+<h1 style="text-align:center;color:goldenrod;">Don Bosco Institute of Technology</h1>
+<h2 style="text-align:center;color: whitesmoke;">THIRD YEAR ENGINEERING</h2>
+</body>
+<img src="prof.png" alt="Italian Trulli">
+<body style="background-color:black;">
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <link rel= "stylesheet" type="text/css" href="style.css">
+  
+    </head>
+    <body>
+
+    
+    <article class="all-browsers">
+      <h1>PROFILE</h1>
+      <article class="browser">
+        <h2>ACADEMICS</h2>
+        <form>
+          <a href="academics.html">
+              <input type="button" value="Click to view" onclick="MyAlert();">
+          </a>
+        </form>
+        
+    </article>
+      <article class="browser">
+        <h2>SPORTS</h2>
+        <form>
+            <input type="button" value="Click to view" onclick="MyConfirm();">
+        </form>
+      </article> 
+      <article class="browser">
+        <h2>HOBBY</h2>
+        <form>
+          <input type="button" value="Click to view" onclick="MyPrompt();">
+      </form>
+      </article>
+    </article>
+    
+    <footer>
+      <p>Author: Rohan Gunge<br>
+      <a href="321rohan0011@dbit.in"></a></p>
+    </footer>
+    
+    </body>
+    </html>
+        
+    </body>
+</html>
+
